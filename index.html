@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Janice ❤️</title>
+<style>
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:#ffe6ea;
+overflow:hidden;
+}
+
+/* Floating hearts */
+.heart{
+position:fixed;
+color:red;
+animation:float 6s linear infinite;
+}
+@keyframes float{
+from{transform:translateY(100vh);opacity:1;}
+to{transform:translateY(-10vh);opacity:0;}
+}
+
+.page{display:none;padding:40px;}
+.active{display:block;}
+
+button{
+padding:12px 25px;
+font-size:18px;
+margin:10px;
+border:none;
+border-radius:8px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+}
+
+img{
+width:260px;
+margin:10px;
+border-radius:10px;
+}
+
+input{
+padding:10px;
+font-size:16px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+</style>
+
+<script>
+
+/* Hearts */
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+20+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},300);
+
+/* Page switch */
+function showPage(id){
+let pages=document.getElementsByClassName("page");
+for(let p of pages){p.classList.remove("active");}
+document.getElementById(id).classList.add("active");
+document.getElementById("music").play();
+}
+
+/* Password */
+function checkLove(){
+let ans=document.getElementById("loveAns").value.toLowerCase();
+if(ans==="iloveyou3000"){
+showPage('valentineQ');
+}else{
+alert("Wrong answer 😏 Think again");
+}
+}
+
+/* No button run */
+function moveNo(){
+let btn=document.getElementById("noBtn");
+btn.style.top=Math.random()*80+"vh";
+btn.style.left=Math.random()*80+"vw";
+}
+</script>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://www.mboxdrive.com/Until%20I%20Found%20You.mp3" type="audio/mp3">
+</audio>
+
+<!-- Password Page -->
+<div class="page active" id="password">
+<h1>For Janice 🧚</h1>
+<p>How much does Crabby 🦀 love you?</p>
+<input id="loveAns" placeholder="Type your answer"/>
+<br><br>
+<button onclick="checkLove()">Enter ❤️</button>
+</div>
+
+<!-- Valentine Question -->
+<div class="page" id="valentineQ">
+<h1>Will you be my Valentine? 💌</h1>
+<button onclick="showPage('rose')">Yes ❤️</button>
+<button id="noBtn" onmouseover="moveNo()">No 😏</button>
+</div>
+
+<!-- Valentine Week Pages -->
+
+<div class="page" id="rose">
+<h1>Rose Day 🌹</h1>
+<p>Like a rose, my love for you grows every day.</p>
+<button onclick="showPage('propose')">Next</button>
+</div>
+
+<div class="page" id="propose">
+<h1>Propose Day 💍</h1>
+<p>I choose you today, tomorrow and forever Janice.</p>
+<button onclick="showPage('chocolate')">Next</button>
+</div>
+
+<div class="page" id="chocolate">
+<h1>Chocolate Day 🍫</h1>
+<p>Life with you is sweeter than anything.</p>
+<button onclick="showPage('teddy')">Next</button>
+</div>
+
+<div class="page" id="teddy">
+<h1>Teddy Day 🧸</h1>
+<p>If I could, I would hug you every minute.</p>
+<button onclick="showPage('promise')">Next</button>
+</div>
+
+<div class="page" id="promise">
+<h1>Promise Day 🤍</h1>
+<p>I promise to stay, try, grow and choose you always.</p>
+<button onclick="showPage('hug')">Next</button>
+</div>
+
+<div class="page" id="hug">
+<h1>Hug Day 🤗</h1>
+<p>Every hug from you feels like home.</p>
+<button onclick="showPage('kiss')">Next</button>
+</div>
+
+<div class="page" id="kiss">
+<h1>Kiss Day 💋</h1>
+<p>Every kiss from you is my favorite moment.</p>
+<button onclick="showPage('timeline')">Next</button>
+</div>
+
+<!-- Timeline -->
+<div class="page" id="timeline">
+<h1>Our Journey ❤️</h1>
+<p>
+From strangers  
+To conversations  
+To fights  
+To understanding  
+To choosing each other again and again  
+This is us.
+</p>
+<button onclick="showPage('final')">Next</button>
+</div>
+
+<!-- Final -->
+<div class="page" id="final">
+<h1>Happy Valentine’s Day Janice ❤️</h1>
+<p>
+Through every fight  
+Every smile  
+Every moment  
+I still choose you  
+
+Forever yours  
+Crabby 🦀
+</p>
+</div>
+
+</body>
+</html>
